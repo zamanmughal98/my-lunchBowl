@@ -4,15 +4,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+After cloning the project, you need to install the libraries that are essential for running this project.
+
+### `npm install`
+This command will install all the necessary libraries required to run the project.
+
+Once the installation is complete, you can run the project by using the following command:
+
 
 ### `npm start`
-
+ 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+
 
 ### `npm test`
 
