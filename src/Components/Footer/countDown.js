@@ -1,4 +1,4 @@
-import cdnImage from '../images/countdown.jpg';
+import cdnImage from '../../images/countdown.webp';
 
 export const CountDown = () => {
   return (

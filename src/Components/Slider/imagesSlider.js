@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react';
 
-import img1 from '../images/i1.jpg';
-import img2 from '../images/i2.jpeg';
-import img3 from '../images/i3.jpeg';
-import img4 from '../images/i4.jpeg';
-import img5 from '../images/i5.jpeg';
-import img6 from '../images/i6.jpg';
+import img1 from '../../images/1.webp';
+import img2 from '../../images/2.webp';
+import img3 from '../../images/3.webp';
+import img4 from '../../images/4.webp';
+import img5 from '../../images/5.webp';
+import img6 from '../../images/6.webp';
 
 export const ImagesSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

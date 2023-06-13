@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
-import avatar1 from '../images/at1.jpg';
-import avatar2 from '../images/at2.jpg';
-import avatar3 from '../images/at3.jpg';
+import avatar1 from '../../images/at1.webp';
+import avatar2 from '../../images/at2.webp';
+import avatar3 from '../../images/at3.webp';
 
 export const ReviewBar = () => {
   const avatarArray = [avatar1, avatar2, avatar3];

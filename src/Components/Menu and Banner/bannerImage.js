@@ -1,4 +1,4 @@
-import myImage from '../images/banner.jpg';
+import myImage from '../../images/banner.webp';
 
 export const BannerImage = () => {
   return (

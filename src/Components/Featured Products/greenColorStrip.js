@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import img1 from '../images/i1.jpg';
-import img4 from '../images/i4.jpeg';
-import img5 from '../images/i5.jpeg';
+import img1 from '../../images/1.webp';
+import img4 from '../../images/4.webp';
+import img5 from '../../images/5.webp';
 
 export const GreenColorStrip = () => {
   const images = [img1, img4, img5];

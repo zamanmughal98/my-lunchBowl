@@ -1,13 +1,13 @@
-import { BannerImage } from './Components/bannerImage';
-import { HeaderColors } from './Components/headerColors';
-import { Menubar } from './Components/menuBar';
-import { ImagesSlider } from './Components/imagesSlider';
-import { TitleLogo } from './Components/titleLogo';
-import { ImageSLiderText } from './Components/imageSliderText';
-import { GreenColorStrip } from './Components/greenColorStrip';
-import { QuotationText } from './Components/quotationText';
-import { CountDown } from './Components/countDown';
-import { ReviewBar } from './Components/reviewsBar';
+import { BannerImage } from './Components/Menu and Banner/bannerImage';
+import { HeaderColors } from './Components/Header/headerColors';
+import { Menubar } from './Components/Menu and Banner/menuBar';
+import { ImagesSlider } from './Components/Slider/imagesSlider';
+import { TitleLogo } from './Components/Header/titleLogo';
+import { ImageSLiderText } from './Components/Slider/imageSliderText';
+import { GreenColorStrip } from './Components/Featured Products/greenColorStrip';
+import { QuotationText } from './Components/Featured Products/quotationText';
+import { CountDown } from './Components/Footer/countDown';
+import { ReviewBar } from './Components/Footer/reviewsBar';
 function App() {
   return (
     <div className="App">
