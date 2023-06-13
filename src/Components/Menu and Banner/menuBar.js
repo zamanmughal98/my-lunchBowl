@@ -1,77 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const Menubar = () => {
+  const myMenus = ['lunch menu', 'home pack', 'gallery', 'faq', 'contact us'];
+
   const [route, setRoute] = useState(window.location.pathname);
+  const [isInitialRender, setIsInitialRender] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (!isInitialRender) {
+      renderComponent();
+    } else {
+      handleNavigation(`/${myMenus[0]}`);
+      setIsInitialRender(false);
+    }
+  }, [route]);
+
+  const handleClick = (index) => {
+    setActiveIndex(index);
+  };
 
   const handleNavigation = (path) => {
     window.history.pushState(null, '', path);
     setRoute(path);
   };
-  const renderComponent = () => {
-    switch (route) {
-      case '/':
-        return alert('Home page loaded');
-      case '/luch-menu':
-        return alert('luch menu page loaded');
-      case '/home-packs':
-        return alert('home packs page loaded');
-      case '/gallery':
-        return alert('gallery page loaded');
-      case '/faq':
-        return alert('FAQ page loaded');
-      case '/contact-us':
-        return alert('contact us page loaded');
 
-      default:
-        return alert('Unknown page type');
-    }
+  const renderComponent = () => {
+    alert(`${myMenus[activeIndex]} page loaded`);
   };
 
   return (
-    <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          width: '80%',
-          marginTop: '4rem',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          background: 'orange',
-          textTransform: 'uppercase',
-        }}>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        width: '80%',
+        marginTop: '4rem',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        background: 'orange',
+        textTransform: 'uppercase',
+      }}>
+      {myMenus.map((menu, index) => (
         <div
-          onClick={() => handleNavigation('/luch-menu')}
+          key={index}
           style={{
+            backgroundColor: index === activeIndex ? 'white' : 'orange',
+            color: index === activeIndex ? 'orange' : 'white',
             padding: '0.5rem 1rem 0.5rem 1rem',
-            background: 'white',
-            color: 'black',
+            cursor: 'pointer',
+            border: index === activeIndex ? '2px solid orange' : 'none',
+          }}
+          onClick={() => {
+            handleNavigation(`/${menu}`);
+            handleClick(index);
           }}>
-          lunch menu
+          {menu}
         </div>
-        <div
-          onClick={() => handleNavigation('/home-packs')}
-          style={{ padding: '0.5rem 1rem 0.5rem 1rem' }}>
-          home packs
-        </div>
-        <div
-          onClick={() => handleNavigation('/gallery')}
-          style={{ padding: '0.5rem 1rem 0.5rem 1rem' }}>
-          gallery
-        </div>
-        <div
-          onClick={() => handleNavigation('/faq')}
-          style={{ padding: '0.5rem 1rem 1rem 1rem' }}>
-          faq
-        </div>
-        <div
-          onClick={() => handleNavigation('/contact-us')}
-          style={{ padding: '0.5rem 1rem 1rem 1rem' }}>
-          contact us
-        </div>
-      </div>
-
-      <div> {renderComponent()}</div>
-    </>
+      ))}
+    </div>
   );
 };
