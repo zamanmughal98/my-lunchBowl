@@ -33,7 +33,7 @@ export const Menubar = () => {
     const camelCasePath = convertToCamelCase(path);
 
     window.history.pushState(null, '', camelCasePath);
-    setRoute(path);
+    setRoute(camelCasePath);
   };
 
   const renderComponent = () => {
