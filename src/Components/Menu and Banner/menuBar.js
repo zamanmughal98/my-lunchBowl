@@ -20,13 +20,24 @@ export const Menubar = () => {
     setActiveIndex(index);
   };
 
+  const convertToCamelCase = (str) =>
+    str
+      .toLowerCase()
+      .split(' ')
+      .map((word, index) =>
+        index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1),
+      )
+      .join('');
+
   const handleNavigation = (path) => {
-    window.history.pushState(null, '', path);
+    const camelCasePath = convertToCamelCase(path);
+
+    window.history.pushState(null, '', camelCasePath);
     setRoute(path);
   };
 
   const renderComponent = () => {
-    alert(`${myMenus[activeIndex]} page loaded`);
+    alert(`${myMenus[activeIndex]} page loaded`.toUpperCase());
   };
 
   return (
@@ -45,11 +56,13 @@ export const Menubar = () => {
         <div
           key={index}
           style={{
+            cursor: 'pointer',
+            padding: '0.5rem 1rem 0.5rem 1rem',
+            border: index === activeIndex ? '2px solid orange' : 'none',
+            borderBottomLeftRadius: index === activeIndex ? '20px' : 'none',
+            borderBottomRightRadius: index === activeIndex ? '20px' : 'none',
             backgroundColor: index === activeIndex ? 'white' : 'orange',
             color: index === activeIndex ? 'orange' : 'white',
-            padding: '0.5rem 1rem 0.5rem 1rem',
-            cursor: 'pointer',
-            border: index === activeIndex ? '2px solid orange' : 'none',
           }}
           onClick={() => {
             handleNavigation(`/${menu}`);
