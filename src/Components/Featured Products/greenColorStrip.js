@@ -35,6 +35,7 @@ export const GreenColorStrip = () => {
         }}>
         {images.map((image, index) => (
           <div
+            key={`green strip div ${index}`}
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -42,7 +43,7 @@ export const GreenColorStrip = () => {
               width: '100%',
             }}>
             <img
-              key={index}
+              key={`green strip image ${index}`}
               src={image}
               alt={`Image ${index + 1}`}
               style={{
@@ -51,7 +52,7 @@ export const GreenColorStrip = () => {
                 objectFit: 'cover',
               }}
             />
-            <p>Special Dish# {index + 1}</p>
+            <p key={`green strip p ${index}`}>Special Dish# {index + 1}</p>
           </div>
         ))}
       </div>

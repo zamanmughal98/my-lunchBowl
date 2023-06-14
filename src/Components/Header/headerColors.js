@@ -8,12 +8,12 @@ export const HeaderColors = () => {
         justifyContent: 'space-between',
         width: '100%',
       }}>
-      {colors.map((color, index) => (
+      {colors.map((background, index) => (
         <div
           key={index}
           style={{
             padding: '15px',
-            background: color,
+            background,
             width: 'inherit',
           }}
         />

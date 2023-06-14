@@ -59,9 +59,11 @@ export const ReviewBar = () => {
                 borderRadius: '50%',
                 paddingTop: '1.3rem',
               }}
+              key={`review bar image ${index}`}
               src={person}
               alt="person"></img>
             <p
+              key={`review bar p ${index}`}
               style={{
                 fontSize: 'xx-small',
                 padding: '0.8em',
@@ -73,6 +75,7 @@ export const ReviewBar = () => {
             </p>
 
             <p
+              key={`watch video p ${index}`}
               style={{
                 color: 'yellowgreen',
                 paddingLeft: '1.2em',
