@@ -1,3 +1,5 @@
+import { FlexContainerW80, LogoTitleContainer } from '../../css';
+
 export const TitleLogo = () => {
   const TitleColorArray = [
     {
@@ -13,30 +15,19 @@ export const TitleLogo = () => {
       color: 'yellowgreen',
     },
   ];
+  
   return (
-    <div
-      style={{
-        width: '80%',
-        marginTop: '1rem',
-        display: 'flex',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        textTransform: 'capitalize',
-      }}>
+    <FlexContainerW80>
       {TitleColorArray.map(({ text, color }, index) => (
-        <div
+        <LogoTitleContainer
           key={index}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            color: color,
-            width: index === 1 ? '40%' : 'inherit',
-            borderBottomStyle: index === 1 ? 'none' : 'dotted',
-            borderColor: index === 1 ? 'none' : 'darkgray',
-          }}>
+          color={color}
+          width={index === 1 ? '40%' : 'inherit'}
+          borderBottomStyle={index === 1 ? 'none' : 'dotted'}
+          borderColor={index === 1 ? 'none' : 'darkgray'}>
           {text}
-        </div>
+        </LogoTitleContainer>
       ))}
-    </div>
+    </FlexContainerW80>
   );
 };

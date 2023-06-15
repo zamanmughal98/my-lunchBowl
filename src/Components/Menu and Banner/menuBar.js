@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FlexContainerW80TM4, MenuBar } from '../../css';
+import { Strings } from '../../common/strings';
 
 export const Menubar = () => {
   const myMenus = ['lunch menu', 'home pack', 'gallery', 'faq', 'contact us'];
@@ -37,40 +39,26 @@ export const Menubar = () => {
   };
 
   const renderComponent = () => {
-    alert(`${myMenus[activeIndex]} page loaded`.toUpperCase());
+    alert(`${myMenus[activeIndex]} ${Strings.pageLoaded}`.toUpperCase());
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        width: '80%',
-        marginTop: '4rem',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        background: 'orange',
-        textTransform: 'uppercase',
-      }}>
+    <FlexContainerW80TM4>
       {myMenus.map((menu, index) => (
-        <div
+        <MenuBar
+          border={index === activeIndex ? '2px solid orange' : 'none'}
+          borderBottomLeftRadius={index === activeIndex ? '20px' : 'none'}
+          borderBottomRightRadius={index === activeIndex ? '20px' : 'none'}
+          background={index === activeIndex ? 'white' : 'orange'}
+          color={index === activeIndex ? 'orange' : 'white'}
           key={index}
-          style={{
-            cursor: 'pointer',
-            padding: '0.5rem 1rem 0.5rem 1rem',
-            border: index === activeIndex ? '2px solid orange' : 'none',
-            borderBottomLeftRadius: index === activeIndex ? '20px' : 'none',
-            borderBottomRightRadius: index === activeIndex ? '20px' : 'none',
-            backgroundColor: index === activeIndex ? 'white' : 'orange',
-            color: index === activeIndex ? 'orange' : 'white',
-          }}
           onClick={() => {
             handleNavigation(`/${menu}`);
             handleClick(index);
           }}>
           {menu}
-        </div>
+        </MenuBar>
       ))}
-    </div>
+    </FlexContainerW80TM4>
   );
 };

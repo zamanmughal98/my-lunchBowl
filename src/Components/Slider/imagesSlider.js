@@ -7,6 +7,11 @@ import img3 from '../../images/3.webp';
 import img4 from '../../images/4.webp';
 import img5 from '../../images/5.webp';
 import img6 from '../../images/6.webp';
+import {
+  FlexContainerW80,
+  SliderButton,
+  BannerImageContainer,
+} from '../../css';
 
 export const ImagesSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,47 +40,17 @@ export const ImagesSlider = () => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        width: '80%',
-        marginTop: '1rem',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-      }}>
-      <button
-        onClick={goToPreviousSlide}
-        style={{
-          background: 'transparent',
-          border: 'transparent',
-          color: 'orange',
-          fontSize: '2rem',
-        }}>
-        &lt;
-      </button>
+    <FlexContainerW80>
+      <SliderButton onClick={goToPreviousSlide}>&lt;</SliderButton>
       {renderSlides().map((image, index) => (
-        <img
+        <BannerImageContainer
+          height={'15rem'}
           key={index}
           src={image}
           alt={`Image ${index + 1}`}
-          style={{
-            width: '100%',
-            height: '15rem',
-            objectFit: 'cover',
-          }}
         />
       ))}
-      <button
-        style={{
-          background: 'transparent',
-          border: 'transparent',
-          color: 'orange',
-          fontSize: '2rem',
-        }}
-        onClick={goToNextSlide}>
-        &gt;
-      </button>
-    </div>
+      <SliderButton onClick={goToNextSlide}>&gt;</SliderButton>
+    </FlexContainerW80>
   );
 };

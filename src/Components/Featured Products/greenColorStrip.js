@@ -1,4 +1,12 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
+import { Strings } from '../../common/strings';
+import {
+  FeaturedProductsContainer,
+  FeaturedProductsTitle,
+  FeaturedProductsImagesContainer,
+  FeaturedProductsImageTextWraper,
+  FeaturedProductsImage,
+} from '../../css';
 import img1 from '../../images/1.webp';
 import img4 from '../../images/4.webp';
 import img5 from '../../images/5.webp';
@@ -7,55 +15,22 @@ export const GreenColorStrip = () => {
   const images = [img1, img4, img5];
 
   return (
-    <div
-      style={{
-        background: 'yellowgreen',
-        width: '100%',
-        marginTop: '2rem',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        paddingRight: '2rem',
-        paddingBottom: '2rem',
-        textTransform: 'uppercase',
-      }}>
-      <div style={{ color: 'white', fontSize: '2rem' }}>Featured Products</div>
-      <div
-        style={{
-          width: '80%',
-          marginTop: '1rem',
-          display: 'flex',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          background: 'white',
-          padding: '2rem',
-          paddingBottom: '0',
-          justifyContent: 'space-evenly',
-        }}>
+    <FeaturedProductsContainer>
+      <FeaturedProductsTitle>{Strings.featuredProducts}</FeaturedProductsTitle>
+      <FeaturedProductsImagesContainer>
         {images.map((image, index) => (
-          <div
-            key={`green strip div ${index}`}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              width: '100%',
-            }}>
-            <img
+          <FeaturedProductsImageTextWraper key={`green strip div ${index}`}>
+            <FeaturedProductsImage
               key={`green strip image ${index}`}
               src={image}
               alt={`Image ${index + 1}`}
-              style={{
-                width: 'inherit-10%',
-                height: '12rem',
-                objectFit: 'cover',
-              }}
             />
-            <p key={`green strip p ${index}`}>Special Dish# {index + 1}</p>
-          </div>
+            <p key={`green strip p ${index}`}>
+              {Strings.specialDish} {index + 1}
+            </p>
+          </FeaturedProductsImageTextWraper>
         ))}
-      </div>
-    </div>
+      </FeaturedProductsImagesContainer>
+    </FeaturedProductsContainer>
   );
 };
