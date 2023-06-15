@@ -1,0 +1,4 @@
+package.json
+package-lock.json
+functions/src/**/__mocks__/**/*.json
+mari_everest/static/mari_everest/js/**/*

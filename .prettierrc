@@ -6,5 +6,16 @@
   "bracketSameLine": true,
   "printWidth": 80,
   "semi": true,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  
+  "overrides": [
+    {
+      "files": ["src/*.js"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+
+
 }
