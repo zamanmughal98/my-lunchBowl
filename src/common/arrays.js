@@ -1,3 +1,4 @@
+import logoImage from '../images/logo.webp';
 export const colors = ['yellowgreen', 'red', 'orange'];
 export const titleColorArray = [
   {
@@ -5,7 +6,7 @@ export const titleColorArray = [
     color: 'red',
   },
   {
-    text: 'logo',
+    text: logoImage,
     color: 'green',
   },
   {

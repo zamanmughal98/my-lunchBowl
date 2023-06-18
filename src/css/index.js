@@ -31,6 +31,11 @@ export const LogoTitleContainer = styled('div')`
   border-color: ${(props) => props.borderColor};
 `;
 
+export const LogoImageContainer = styled('img')`
+  max-width: 3rem;
+  max-height: 3rem;
+  padding: 0 4rem;
+`;
 export const FlexContainerW80TM4 = styled('div')`
   width: 80%;
   display: flex;
