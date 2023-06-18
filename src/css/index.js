@@ -42,7 +42,7 @@ export const FlexContainerW80TM4 = styled('div')`
   text-transform: uppercase;
 `;
 
-export const MenuBar = styled('div')`
+export const MenubarWraper = styled('div')`
   cursor: pointer;
   padding: 0.5rem 1rem;
   border: ${(props) => props.border};

@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { FlexContainerW80TM4, MenuBar } from '../../css';
-import { Strings } from '../../common/strings';
+import { FlexContainerW80TM4, MenubarWraper } from '../../css';
+import { myMenus } from '../../common/arrays';
 
-export const Menubar = () => {
-  const myMenus = ['lunch menu', 'home pack', 'gallery', 'faq', 'contact us'];
-
-  const [route, setRoute] = useState(window.location.pathname);
-  const [isInitialRender, setIsInitialRender] = useState(true);
+export const Menubar = ({ getCurrentPage: sendCurrentPageToApp }) => {
+  const [route, setRoute] = useState(`/${myMenus[0]}`);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (!isInitialRender) {
-      renderComponent();
-    } else {
-      handleNavigation(`/${myMenus[0]}`);
-      setIsInitialRender(false);
-    }
+    handleNavigation(`/${myMenus[0]}`);
+  }, []);
+
+  useEffect(() => {
+    sendCurrentPageToApp(myMenus[activeIndex]);
   }, [route]);
 
   const handleClick = (index) => {
@@ -38,14 +34,10 @@ export const Menubar = () => {
     setRoute(camelCasePath);
   };
 
-  const renderComponent = () => {
-    alert(`${myMenus[activeIndex]} ${Strings.pageLoaded}`.toUpperCase());
-  };
-
   return (
     <FlexContainerW80TM4>
       {myMenus.map((menu, index) => (
-        <MenuBar
+        <MenubarWraper
           border={index === activeIndex ? '2px solid orange' : 'none'}
           borderBottomLeftRadius={index === activeIndex ? '20px' : 'none'}
           borderBottomRightRadius={index === activeIndex ? '20px' : 'none'}
@@ -57,7 +49,7 @@ export const Menubar = () => {
             handleClick(index);
           }}>
           {menu}
-        </MenuBar>
+        </MenubarWraper>
       ))}
     </FlexContainerW80TM4>
   );

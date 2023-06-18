@@ -1,24 +1,11 @@
 import { FlexContainerW80, LogoTitleContainer } from '../../css';
-
+import { titleColorArray } from '../../common/arrays';
 export const TitleLogo = () => {
-  const TitleColorArray = [
-    {
-      text: 'My LunchBowl',
-      color: 'red',
-    },
-    {
-      text: 'logo',
-      color: 'green',
-    },
-    {
-      text: 'Office lunch Delivery',
-      color: 'yellowgreen',
-    },
-  ];
+  
   
   return (
     <FlexContainerW80>
-      {TitleColorArray.map(({ text, color }, index) => (
+      {titleColorArray.map(({ text, color }, index) => (
         <LogoTitleContainer
           key={index}
           color={color}

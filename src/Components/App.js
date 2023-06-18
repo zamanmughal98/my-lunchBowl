@@ -8,20 +8,35 @@ import { GreenColorStrip } from './Featured Products/greenColorStrip';
 import { QuotationText } from './Featured Products/quotationText';
 import { CountDown } from './Footer/countDown';
 import { ReviewBar } from './Footer/reviewsBar';
+import { useState } from 'react';
+import { SliderTextContainer } from '../css';
+import { Strings } from '../common/strings';
 
 export const App = () => {
+  const [currentPage, setCurrentPage] = useState();
+  const activeWhen = 'lunch menu';
+
+  const currentPageHandler = (value) => setCurrentPage(value);
   return (
     <div className="App">
       <HeaderColors />
       <TitleLogo />
-      <Menubar />
-      <BannerImage />
-      <ImagesSlider />
-      <ImageSLiderText />
-      <GreenColorStrip />
-      <QuotationText />
-      <CountDown />
-      <ReviewBar />
+      <Menubar getCurrentPage={currentPageHandler} />
+      {currentPage === activeWhen ? (
+        <>
+          <BannerImage />
+          <ImagesSlider />
+          <ImageSLiderText />
+          <GreenColorStrip />
+          <QuotationText />
+          <CountDown />
+          <ReviewBar />
+        </>
+      ) : (
+        <SliderTextContainer>
+          {currentPage} {Strings.pageLoaded}
+        </SliderTextContainer>
+      )}
     </div>
   );
 };
